@@ -22,6 +22,11 @@ export default {
                 return this.registeredUser[i]
 
             }
+            // if (this.registeredUser[i].username === "jude@gmail.com" && this.registeredUser[i].password === "jude") {
+            //     ROUTER.push('/Dashboard')
+            //     return this.registeredUser[i]
+
+            // }
         }
         return null
     },

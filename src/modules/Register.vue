@@ -5,7 +5,7 @@
         <center>
           <h1>Register</h1>
         </center>
-        <hr>
+        <hr />
         <div>
           <div class="row">
             <label id="username" for="inputfname">Username:</label>
@@ -15,11 +15,11 @@
               name="username"
               placeholder="Enter Username"
               required
-            >
+            />
           </div>
-          <br>
+          <br />
           <div class="row">
-            <br>
+            <br />
             <label id="email" for="inputEmail">Email:</label>
             <input
               required
@@ -27,9 +27,9 @@
               class="form-control"
               v-model="content.email"
               placeholder="Enter Email"
-            >
+            />
           </div>
-          <br>
+          <br />
           <div class="row">
             <label id="pass" for="inputPassword">Password:</label>
             <input
@@ -40,10 +40,10 @@
               name="password"
               id="inputPassword4"
               placeholder="Password"
-            >
+            />
             <span></span>
-            <br>
-            <br>
+            <br />
+            <br />
           </div>
           <div class="row">
             <label id="conpass" for="inputConPassword">Confirm Password:</label>
@@ -53,19 +53,19 @@
               class="form-control"
               id="inputConPassword"
               placeholder="Confirm Password"
-            >
+            />
             <span></span>
-            <br>
-            <br>
+            <br />
+            <br />
           </div>
         </div>
         <button id="btnSubmit" type="submit" class="btn btn-primary" @click="submit">
           <h6>Register</h6>
         </button>
-        <br>
+        <br />
         <p id="had">Already have an account?</p>
         <router-link to="/Login">Login</router-link>
-        <br>
+        <br />
       </form>
     </div>
   </center>
@@ -84,7 +84,7 @@
 // #conpass {
 //   color: $primary !important;
 // }
-#had{
+#had {
   color: $primary !important;
 }
 </style>
@@ -102,13 +102,13 @@ export default {
       }
     };
   },
- methods: {
+  methods: {
     submit: function(e) {
-    e.preventDefault();
-    sessionStorage.setItem("Username", this.content.username),
-    sessionStorage.setItem("Email", this.content.email),
-    sessionStorage.setItem("Password", this.content.password),
-    AUTH.register(this.content.username, this.content.password);
+      e.preventDefault();
+      sessionStorage.setItem("Username", this.content.username),
+        sessionStorage.setItem("Email", this.content.email),
+        sessionStorage.setItem("Password", this.content.password),
+        AUTH.register(this.content.username, this.content.password);
     }
   }
 };

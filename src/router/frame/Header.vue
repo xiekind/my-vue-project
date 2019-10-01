@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="info">
-    <b-navbar-brand href="#" id="title">LIT University</b-navbar-brand>
+    <b-navbar-brand href="#" id="title">But-anon</b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 

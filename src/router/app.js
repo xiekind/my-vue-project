@@ -27,7 +27,7 @@ export default {
         name: 'Subjects',
         component: resolve => require(['modules/Subjects.vue'], resolve),
         meta: {
-            tokenRequired: false
+            tokenRequired: true
         }
     },
     {
@@ -35,7 +35,7 @@ export default {
         name: 'PersonalInfo',
         component: resolve => require(['modules/PersonalInfo.vue'], resolve),
         meta: {
-            tokenRequired: false
+            tokenRequired: true
         },
 
     }]

@@ -6,11 +6,11 @@
     <div id="card">
       <b-card no-body class="overflow-hidden" style="max-width: 540px;">
         <center>
-          <b-card-img id="image" :src="require('assets/hacker.png')" class="rounded-0"></b-card-img>
+          <b-card-img id="image" :src="require('assets/me-3.png')" style="border-radius:50px;width:20px" class="rounded-5"></b-card-img>
           <b-row no-gutters>
             <b-card-body>
               <h1>Hi {{username}}</h1>
-              <h3>Welcome to Lucifer Institute of Technology University</h3>
+              <h3>Welcom To Your Wall</h3>
             </b-card-body>
           </b-row>
         </center>
@@ -28,7 +28,7 @@
 .jumbotron{
     padding: $padding !important;
     text-align: $text-align !important;
-    color: $primary !important;
+    color: $black !important;
 }
 #image {
   width: $width !important;
