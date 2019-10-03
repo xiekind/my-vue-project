@@ -23,6 +23,7 @@
                     <th scope="col">TIME</th>
                     <th scope="col">DAY</th>
                     <th scope="col">VENUE</th>
+                    <th scope="col">ACTION</th>
                   </tr>
                 </thead>
                 <tbody v-for="(item, index) in this.rows" :key="index">
@@ -32,6 +33,7 @@
                     <td>{{ item.time }}</td>
                     <td>{{ item.day }}</td>
                     <td>{{ item.room }}</td>
+                    <td> <b-button @click="remove(item.subject)">remove </b-button> </td>
                   </tr>
                 </tbody>
               </table>
@@ -67,25 +69,6 @@
         </div>
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
   </div>
 </template>
 <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
@@ -96,24 +79,14 @@
   text-align: center;
 }
 
-
-
-
-
-
-
 body {
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
 }
-
-
-
-
-
 </style>
 
 <script>
-
 // import swal from 'sweetalert';
 
 export default {
@@ -144,19 +117,13 @@ export default {
       this.content.time = "";
       this.content.day = "";
       this.content.room = "";
+    },
+    remove(subject) {
+      this.rows.splice(0, 1);
+      console.log(subject);
     }
   }
 };
-
-
-
-
-
-
-
-
-
-
 
 // (async () => {
 
@@ -179,8 +146,4 @@ export default {
 // }
 
 // })()
-
-
-
-
 </script>

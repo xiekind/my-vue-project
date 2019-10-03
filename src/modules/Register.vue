@@ -59,7 +59,7 @@
             <br />
           </div>
         </div>
-        <button id="btnSubmit" type="submit" class="btn btn-primary" @click="register()">
+        <button id="btnSubmit" type="submit" class="btn btn-primary" @click="submit">
           <h6>Register</h6>
         </button>
         <br />
@@ -103,17 +103,17 @@ export default {
         sessionStorage.setItem("Password", this.content.password),
         AUTH.register(this.content.email, this.content.password);
 
-      let link = `http://localhost:3000/db/create/${this.username}/${this.email}/${this.password}`;
-      $.ajax({
-          url: link,
-          method: "GET",
-          headers: {
-            "Access-Control-Allow-Origin": "*"
-          }
-        })
-        .then(response => {
-          alert(response.username);
-        });
+      // let link = `http://localhost:3000/db/create/${this.username}/${this.email}/${this.password}`;
+      // $.ajax({
+      //     url: link,
+      //     method: "GET",
+      //     headers: {
+      //       "Access-Control-Allow-Origin": "*"
+      //     }
+      //   })
+      //   .then(response => {
+      //     alert(response.username);
+      //   });
     }
   }
 };

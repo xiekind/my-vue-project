@@ -1,29 +1,56 @@
 <template>
-  <Slide>
-    <a id="dashboardID" href="/Dashboard">
-      <span>Dashboard</span>
-    </a>
-    <a id="profileID" href="/PersonalInfo">
-      <span>Profile</span>
-    </a>
-    <a id="subjectID" href="/Subjects">
-      <span>Subjects</span>
-    </a>
-    <a id="logoutID" href="/Login">
-      <span>Logout</span>
-    </a>
-  </Slide>
+<div name="Sidebar">
+
+    <sidebar-menu :menu="menu"></sidebar-menu>
+
+</div>
 </template>
+
+<style scoped>
+.v-sidebar-menu{
+  margin-top:52px;
+  height: 90%;
+}
+</style>
+
  
 <script>
-import { Slide } from "vue-burger-menu";
+// import { Slide } from "vue-burger-menu";
+// import ROUTER from 'router'
+// import AUTH from 'service/auth'
 
 export default {
+  name:'Sidebar',
   components: {
-    Slide
+
   },
   data() {
-    return {};
+    return {
+      
+      menu:[
+        {
+        header : true,
+        title: 'Navigation Bar',
+        hiddenOnCollapse : true
+      },
+      {
+        title:'Dash Board',
+        href:'/Dashboard'
+      },
+      {
+        title:'Profile',
+        href:'/PersonalInfo'
+      },
+      {
+        title:'Subjects',
+        href:'/Subjects'
+      },
+      {
+        title:'Logout',
+        href:'/Lougout'
+      }
+      ]
+    };
   }
 };
 </script> 
