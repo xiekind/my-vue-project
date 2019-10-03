@@ -1,7 +1,11 @@
 import AUTH from '../services/auth'
+// import { Session } from 'inspector'
 
 let beforeEnter = (to, from, next) => {
     AUTH.currentPath = to.path
+    // if(to.tokenRequire === true){
+    //     tokenRequire = Session.getToken
+    // }
     next()
 }
 

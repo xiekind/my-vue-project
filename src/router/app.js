@@ -33,7 +33,7 @@ export default {
     {
         path: '/PersonalInfo',
         name: 'PersonalInfo',
-        component: resolve => require(['modules/PersonalInfo.vue'], resolve),
+        component: resolve => require(['modules/Profile.vue'], resolve),
         meta: {
             tokenRequired: true
         },

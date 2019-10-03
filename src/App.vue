@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Sidebar from 'router/frame/Sidebar.vue'
-import Header from 'router/frame/Header.vue'
-import AppBody from 'router/frame/Body.vue'
+import Sidebar from 'components/frame/Sidebar.vue'
+import Header from 'components/frame/Header.vue'
+import AppBody from 'components/frame/Body.vue'
 
 export default {
   name: 'app',

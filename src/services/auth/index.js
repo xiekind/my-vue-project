@@ -8,18 +8,19 @@ export default {
     getUser(user) {
         this.user = user
     },
-    register(username, password) {
+    register(email, password) {
         this.registeredUser.push({
-        username : username,
-        password : password
+            email: email,
+            password: password
         })
         ROUTER.push("/Login");
     },
-    login(username, password) {
+    login(email, password) {
         for (let i = 0; i < this.registeredUser.length; i++) {
-            if (this.registeredUser[i].username === username && this.registeredUser[i].password === password) {
+            if (this.registeredUser[i].email === email && this.registeredUser[i].password === password) {
                 ROUTER.push('/Dashboard')
                 return this.registeredUser[i]
+                // token = sessionStorage.getItem('tokenRequired')
 
             }
             // if (this.registeredUser[i].username === "jude@gmail.com" && this.registeredUser[i].password === "jude") {
