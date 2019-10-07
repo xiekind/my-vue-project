@@ -81,7 +81,7 @@
 }
 </style>
 <script>
-import $ from "jquery";
+// import $ from "jquery";
 import AUTH from "services/auth";
 export default {
   data() {

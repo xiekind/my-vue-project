@@ -1,130 +1,144 @@
 <template>
-  <div>
-    <div class="jumbotron">
-      <h1>Subjects</h1>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <center>
-            <b-card
-              text-align
-              id="card1"
-              img-top
-              tag="article"
-              style="max-width: 40rem;"
-              class="mb-2"
-            >
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">SUBJECT</th>
-                    <th scope="col">TEACHER</th>
-                    <th scope="col">TIME</th>
-                    <th scope="col">DAY</th>
-                    <th scope="col">VENUE</th>
-                    <th scope="col">ACTION</th>
-                  </tr>
-                </thead>
-                <tbody v-for="(item, index) in this.rows" :key="index">
-                  <tr>
-                    <td>{{ item.subject }}</td>
-                    <td>{{ item.teacher }}</td>
-                    <td>{{ item.time }}</td>
-                    <td>{{ item.day }}</td>
-                    <td>{{ item.room }}</td>
-                    <td> <b-button @click="remove(item.subject)">remove </b-button> </td>
-                  </tr>
-                </tbody>
-              </table>
-            </b-card>
-          </center>
-        </div>
-        <div class="col">
-          <center>
-            <b-card
-              text-align
-              id="card"
-              img-top
-              tag="article"
-              style="max-width: 30rem;"
-              class="mb-2"
-            >
-              <b-form-group label-for="input-lg">
-                <label id="Subject">Subject:</label>
-                <b-form-input v-model="content.subject" id="subject" size="sm"></b-form-input>
-                <label id="teacher">Teacher:</label>
-                <b-form-input v-model="content.teacher" id="teacher" size="sm"></b-form-input>
-                <label id="time">Time:</label>
-                <b-form-input v-model="content.time" id="time" size="sm"></b-form-input>
-                <label id="time">Day:</label>
-                <b-form-input v-model="content.day" id="day" size="sm"></b-form-input>
-                <label id="room">Venue:</label>
-                <b-form-input v-model="content.room" id="room" size="sm"></b-form-input>
-                <br>
-                <b-button variant="primary" @click="addItem">Add Subject</b-button>
-              </b-form-group>
-            </b-card>
-          </center>
-        </div>
+  <div id="card">
+    <center>
+      <div>
+        <h1 id="kurses">Courses:</h1>
       </div>
-    </div>
+      <hr>
+      <b-card id="b-card" >
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Course</th>
+              <th scope="col">Year</th>
+              <th scope="col">Schedule</th>
+              <th scope="col">Room</th>
+              <th scope="col">Teacher</th> 
+              <!-- <th scope="col">Action</th>             -->
+            </tr>
+          </thead>
+          <tbody v-for="(item, index) in this.rows" :key="index">
+            <tr>
+              <td>{{ item.course }}</td>
+              <td>{{ item.year }}</td>
+              <td>{{ item.schedule }}</td>
+              <td>{{ item.room }}</td>
+              <td>{{ item.teacher }}</td>
+              <!-- <td><b-button variant="outline-primary" @click="remove()">Remove</b-button></td> -->
+            </tr>
+          </tbody>
+        </table>
+      </b-card>
+      <hr>
+      <div id="addCourse">
+        <b-button  style="width:100px"  block variant="outline-primary" v-b-toggle.collapse-1 class="m-1" >Add Course</b-button>
+        <b-collapse id="collapse-1">
+          <b-card>
+            <b-form-group>
+              <label id="course">Course:</label>
+              <b-form-input required v-model="contents.course" id="subject"></b-form-input>
+              <br>
+              <label id="year">Year:</label>
+              <b-form-input required v-model="contents.year" id="year"></b-form-input>
+              <br>
+              <label id="sched">Schedule:</label>
+              <b-form-input required v-model="contents.schedule" id="time"></b-form-input>
+              <br>
+              <label id="room">Room:</label>
+              <b-form-input required v-model="contents.room" id="room"></b-form-input>
+              <br>
+              <label id="teacher">Teacher:</label>
+              <b-form-input required v-model="contents.teacher" id="teacher"></b-form-input>
+              <br>
+              <b-button variant="primary" @click="addItem">Add Subject</b-button>
+            </b-form-group>
+          </b-card>
+        </b-collapse>
+      </div>
+      <div id="removeCourse">
+        <b-button style="width:100px" block variant="outline-primary" v-b-toggle.collapse-2 class="m-1">Remove Course</b-button>
+        <b-collapse id="collapse-2">
+          <b-card>
+            <b-form-group>
+              Course:<b-form-input required v-model="deleteContent.deleteCourse" id="subject"></b-form-input>
+              <br>
+              <b-button variant="primary" @click="remove">Remove</b-button>
+            </b-form-group>
+          </b-card>
+        </b-collapse>
+      </div>    
+    </center>
   </div>
 </template>
+
+
 <!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
 
 <style>
-.jumbotron {
-  padding: 20px;
-  text-align: center;
+#card {
+  max-width: 50%;
+  margin-left: 25%;
+  margin-top: 10%;
 }
-
-body {
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+.table,#b-card{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+  overflow-x:auto;
+}
+#kurses {
+  text-align: center;
 }
 </style>
 
 <script>
 // import swal from 'sweetalert';
-
+import AUTH from 'services/auth'
 export default {
   data() {
     return {
+      auth: AUTH,
       rows: [],
-      content: {
-        subject: "",
-        teacher: "",
-        time: "",
-        day: "",
-        room: ""
+      deleteContent: {
+        deleteCourse: "",
+      },
+      contents: {
+        course: "",
+        year: "",
+        schedule: "",
+        room: "",
+        teacher: ""
       }
     };
   },
   methods: {
     addItem() {
       var object = {
-        subject: this.content.subject,
-        teacher: this.content.teacher,
-        time: this.content.time,
-        day: this.content.day,
-        room: this.content.room
+        course: this.contents.course,
+        year: this.contents.year,
+        schedule: this.contents.schedule,
+        room: this.contents.room,
+        teacher: this.contents.teacher,
       };
+      AUTH.addCourse(this.contents.course,this.contents.year,this.contents.schedule,this.contents.room,this.contents.teacher)
       this.rows.push(object);
-      this.content.subject = "";
-      this.content.teacher = "";
-      this.content.time = "";
-      this.content.day = "";
-      this.content.room = "";
+      this.contents.course = "";
+      this.contents.year= "",
+      this.contents.schedule = "";
+      this.contents.room = "";
+      this.contents.teacher = "";
+      
     },
-    remove(subject) {
-      this.rows.splice(0, 1);
-      console.log(subject);
+    remove(){
+      for(let i=0;i<this.rows.length;i++){
+        if(this.rows[i].course === this.deleteContent.deleteCourse){
+          this.rows.splice(this.rows.indexOf((this.rows[i]),1))
+        }
+      }
     }
   }
 };
-
 // (async () => {
 
 // const { value: formValues } = await Swal.fire({

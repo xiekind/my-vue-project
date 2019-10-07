@@ -31,12 +31,29 @@ export default {
         }
     },
     {
-        path: '/PersonalInfo',
-        name: 'PersonalInfo',
+        path: '/Profile',
+        name: 'Profile',
         component: resolve => require(['modules/Profile.vue'], resolve),
         meta: {
             tokenRequired: true
         },
 
-    }]
+    },
+    {
+        path: '/Logout',
+        name: 'Logout',
+        component: resolve => require(['modules/Logout.vue'], resolve),
+        meta: {
+            tokenRequired: true
+        }
+    },
+    {
+        path: '/EditProfile',
+        name: 'EditProfile',
+        component: resolve => require(['modules/EditProfile.vue'], resolve),
+        meta: {
+            tokenRequired: true
+        }
+    },
+]
 }

@@ -39,7 +39,7 @@ export default {
       },
       {
         title:'Profile',
-        href:'/PersonalInfo'
+        href:'/Profile'
       },
       {
         title:'Subjects',
@@ -47,10 +47,15 @@ export default {
       },
       {
         title:'Logout',
-        href:'/Lougout'
+        href:'/Logout',
       }
       ]
     };
+  },
+  methods:{
+    out(e){
+      e.preventDefault()
+    }
   }
 };
 </script> 

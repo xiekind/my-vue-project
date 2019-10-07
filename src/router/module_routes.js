@@ -3,10 +3,16 @@ import AUTH from '../services/auth'
 
 let beforeEnter = (to, from, next) => {
     AUTH.currentPath = to.path
-    // if(to.tokenRequire === true){
-    //     tokenRequire = Session.getToken
-    // }
-    next()
+    if (to.tokenRequired == true) {
+        let token = sessionStorage.getItem("Username")
+        if (token == null) {
+            next()
+        } else {
+            next({ path: '/login' })
+        }
+    } else {
+        next()
+    }
 }
 
 var devRoutes = []

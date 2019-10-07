@@ -1,40 +1,60 @@
-import ROUTER from 'router'
+import ROUTER from 'router';
+import Swal from "sweetalert2";
+
 export default {
     user: null,
     registeredUser: [],
+    courses: [],
     setUser(user) {
         this.user = user
     },
-    getUser(user) {
-        this.user = user
-    },
+
     register(email, password) {
         this.registeredUser.push({
             email: email,
             password: password
         })
-        ROUTER.push("/Login");
+        ROUTER.push('/login')
     },
     login(email, password) {
         for (let i = 0; i < this.registeredUser.length; i++) {
             if (this.registeredUser[i].email === email && this.registeredUser[i].password === password) {
-                ROUTER.push('/Dashboard')
+                ROUTER.push('/dashboard')
                 this.setUser(email)
                 return this.registeredUser[i]
-                // token = sessionStorage.getItem('tokenRequired')
-
+            } else {
+                alert("Email or Password is incorrect!")
             }
-            // if (this.registeredUser[i].username === "jude@gmail.com" && this.registeredUser[i].password === "jude") {
-            //     ROUTER.push('/Dashboard')
-            //     return this.registeredUser[i]
-
-            // }
         }
         return null
     },
     logout() {
         this.user = null
-        ROUTER.push('/Login')
-    }
-
+        Swal.fire({
+            title: "Successfuly OUT!",
+            type: "success"
+        });
+        ROUTER.push('/login')
+    },
+    addCourse(course, year, schedule, room, teacher) {
+        this.courses.push({
+            course: course,
+            year: year,
+            schedule: schedule,
+            room: room,
+            teacher: teacher,
+        });
+    },
+    save(username, email, password) {
+        for (let i = 0; i < this.registeredUser.length; i++) {
+            this.registeredUser[i].username = username,
+                this.registeredUser[i].email = email,
+                this.registeredUser[i].password = password
+        }
+        Swal.fire({
+            title: "Successfuly Changed!",
+            type: "success"
+        });
+        ROUTER.push('/Profile')
+    },
 }

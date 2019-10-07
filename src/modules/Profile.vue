@@ -11,7 +11,7 @@
           </b-col>
           <b-col md="6">
             <b-card-body title="Personal Info">
-                <hr>
+              <hr>
               <b-card-text>
                 <h6>Username: {{username}}</h6>
                 <h6>Email: {{email}}</h6>
@@ -21,24 +21,28 @@
           </b-col>
         </b-row>
       </b-card>
+      <br>
+      <center>
+        <b-button @click="redirect('/EditProfile')" variant="success">Edit Profile</b-button>
+      </center>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
 @import "assets/colors.scss";
-.jumbotron{
-    padding: 20px;
-    text-align: center;
+.jumbotron {
+  padding: 20px;
+  text-align: center;
 }
 #card {
   margin-top: 50px;
   margin-left: 380px;
   //  color: $primary !important;
 }
-
 </style>
 <script>
+import ROUTER from "router";
 export default {
   // name: "container",
   data() {
@@ -48,5 +52,10 @@ export default {
       password: sessionStorage.getItem("Password")
     };
   },
+  methods: {
+    redirect(router) {
+      ROUTER.push(router);
+    }
+  }
 };
 </script>
