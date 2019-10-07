@@ -1,15 +1,16 @@
 <template>
-<div name="Sidebar">
 
+  <div name="Sidebar">.
     <sidebar-menu :menu="menu"></sidebar-menu>
 
-</div>
+  </div>
+
 </template>
 
 <style scoped>
 .v-sidebar-menu{
-  margin-top:52px;
-  height: 90%;
+    height: 93%;
+    margin-top: 56px;
 }
 </style>
 
@@ -20,42 +21,35 @@
 // import AUTH from 'service/auth'
 
 export default {
-  name:'Sidebar',
-  components: {
-
-  },
+  name: "Sidebar",
+  components: {},
   data() {
     return {
-      
-      menu:[
+      menu: [
         {
-        header : true,
-        title: 'Navigation Bar',
-        hiddenOnCollapse : true
-      },
-      {
-        title:'Dash Board',
-        href:'/Dashboard'
-      },
-      {
-        title:'Profile',
-        href:'/Profile'
-      },
-      {
-        title:'Subjects',
-        href:'/Subjects'
-      },
-      {
-        title:'Logout',
-        href:'/Logout',
-      }
+          header: true,
+          title: "Navigation Bar",
+          hiddenOnCollapse: true
+        },
+        {
+          title: "Dash Board",
+          href: "/Dashboard",
+          icon: 'fa fa-user'
+        },
+        {
+          title: "Profile",
+          href: "/Profile"
+        },
+        {
+          title: "Subjects",
+          href: "/Subjects"
+        },
+        {
+          title: "Logout",
+          href: "/Logout"
+        }
       ]
     };
-  },
-  methods:{
-    out(e){
-      e.preventDefault()
-    }
   }
 };
 </script> 
