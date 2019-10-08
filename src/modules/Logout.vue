@@ -15,11 +15,16 @@
 </style>
 
 <script>
+
+const Swal = require('sweetalert2')
+// import swal from "sweetalert2/dist/sweetalert2.js";
+import "sweetalert2/src/sweetalert2.scss";
 import AUTH from "services/auth";
 // import ROUTER from "router";
 export default {
   auth: AUTH,
   methods: {
+    
     logOut(e) {
       e.preventDefault();
       AUTH.logout();

@@ -2,10 +2,10 @@ import AUTH from '../services/auth'
 // import { Session } from 'inspector'
 
 let beforeEnter = (to, from, next) => {
-    AUTH.currentPath = to.path
-    if (to.tokenRequired == true) {
-        let token = sessionStorage.getItem("Username")
-        if (token == null) {
+    // AUTH.currentPath = to.path
+    if (to.meta.tokenRequired === true) {
+        // let token = sessionStorage.getItem("Username")
+        if (AUTH.user!==null) {
             next()
         } else {
             next({ path: '/login' })

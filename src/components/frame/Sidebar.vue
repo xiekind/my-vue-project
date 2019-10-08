@@ -38,15 +38,18 @@ export default {
         },
         {
           title: "Profile",
-          href: "/Profile"
+          href: "/Profile",
+          icon: 'fa fa-user'
         },
         {
           title: "Subjects",
-          href: "/Subjects"
+          href: "/Subjects",
+          icon: 'fa fa-user'
         },
         {
           title: "Logout",
-          href: "/Logout"
+          href: "/Logout",
+          icon: 'fa fa-user'
         }
       ]
     };
